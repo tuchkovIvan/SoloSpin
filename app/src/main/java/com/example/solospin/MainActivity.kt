@@ -6,38 +6,34 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.solospin.ui.components.ExerciseGrid
 import com.example.solospin.ui.theme.SoloSpinTheme
+
+
+val LIST_OF_EXERCISES: List<String> = listOf("Hello, my name is Roman, I am senior video editor and UI/UX designer", "forehand-topspin-default", "forehand-topspin-over-topspin", "forehand-topspin-over-backspin", "forehand-drive", "forehand-flick",
+    "backhand-topspin-default", "backhand-topspin-over-topspin", "backhand-topspin-over-backspin", "backhand-drive", "backhand-flick")
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Voiceover.getInstance(this)
+
         setContent {
             SoloSpinTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    ExerciseGrid(LIST_OF_EXERCISES)
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SoloSpinTheme {
-        Greeting("Android")
+    override fun onDestroy() {
+        Voiceover.shutdown()
+        super.onDestroy()
     }
 }
