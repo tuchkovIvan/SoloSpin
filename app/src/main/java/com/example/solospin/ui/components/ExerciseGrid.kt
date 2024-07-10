@@ -81,6 +81,7 @@ fun ExerciseGrid(repository: SoloSpinRepository, spacing: Dp = 8.dp) {
         techniquesCount = repository.getAllTechniques().size
     }
 
+
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 128.dp),
         modifier= Modifier

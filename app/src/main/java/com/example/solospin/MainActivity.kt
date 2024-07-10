@@ -15,6 +15,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
+
+val LIST_OF_EXERCISES: List<String> = listOf("Hello, my name is Roman, I am senior video editor and UI/UX designer", "forehand-topspin-default", "forehand-topspin-over-topspin", "forehand-topspin-over-backspin", "forehand-drive", "forehand-flick",
+    "backhand-topspin-default", "backhand-topspin-over-topspin", "backhand-topspin-over-backspin", "backhand-drive", "backhand-flick")
+
+
 class MainActivity : ComponentActivity() {
     lateinit var database: SoloSpinDatabase
     lateinit var repository: SoloSpinRepository
